@@ -37,8 +37,26 @@
                 'line-cap': 'round'
             },
             'paint': {
-                'line-color': '#888',
-                'line-width': 4
+                'line-color': '#377EB8',
+                'line-width': 3
+            }
+        });
+
+        map.addSource('high_stress', {
+            type: 'geojson',
+            data: 'https://draganarad.github.io/mapData/high_stress.geojson'
+        });
+        map.addLayer({
+            'id': 'high_stress',
+            'type': 'line',
+            'source': 'high_stress',
+            'layout': {
+                'line-join': 'round',
+                'line-cap': 'round'
+            },
+            'paint': {
+                'line-color': '#FF7F00',
+                'line-width': 3
             }
         });
     });
