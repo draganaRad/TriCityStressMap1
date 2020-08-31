@@ -16,6 +16,7 @@
 <script>
     // tricityfix 
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJhZ2FuYXJhZCIsImEiOiJja2VqMXdhdjYwcG1nMnNwaDF2NTB2dXo3In0.bygJ2mi6fQe9kUg_8HA34w';
+
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -59,6 +60,16 @@
                 'line-width': 3
             }
         });
+
+        // Add geolocate control to the map.
+        map.addControl(
+        new mapboxgl.GeolocateControl({
+        positionOptions: {
+        enableHighAccuracy: true
+        },
+        trackUserLocation: true
+        })
+        );
     });
 </script>
 
