@@ -16,10 +16,11 @@
 <script>
     // tricityfix 
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZHJhZ2FuYXJhZCIsImEiOiJja2VqMXdhdjYwcG1nMnNwaDF2NTB2dXo3In0.bygJ2mi6fQe9kUg_8HA34w';
+    
 
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/light-v10',
         center: [-122.825015, 49.254667],
         zoom: 12
     });
@@ -39,7 +40,8 @@
             },
             'paint': {
                 'line-color': '#377EB8',
-                'line-width': 3
+                'line-width': 3,
+                'line-opacity': 0.5
             }
         });
 
@@ -57,19 +59,18 @@
             },
             'paint': {
                 'line-color': '#FF7F00',
-                'line-width': 3
+                'line-width': 3,
+                'line-opacity': 0.5
             }
         });
 
         // Add geolocate control to the map.
-        map.addControl(
-        new mapboxgl.GeolocateControl({
-        positionOptions: {
-        enableHighAccuracy: true
-        },
-        trackUserLocation: true
-        })
-        );
+        map.addControl(new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        }));
     });
 </script>
 
