@@ -27,20 +27,20 @@
     <div id="map"></div>
 
     <div class="col4 pad1 scroll-styled pin-topright">
-        <div id="legendbtn" class="fill-darken2 pad1 icon menu button fr" ></div>
+        <div id="legendbtn" class="fill-darken2 pad1 icon menu button fr"></div>
         <div id="legend" class="fill-darken1 round" style="display: none">
-            <div id="closebtn" class="fill-darken2 pad1 icon close button fr" ></div>
+            <div id="closebtn" class="fill-darken2 pad1 icon close button fr"></div>
             <div class="clearfix"></div>
-                <form>
-                    <fieldset class="checkbox-pill clearfix">
-                        <input type="checkbox" id="lts1" checked="checked">
-                        <label for="lts1" id="lts1-label" class="button icon check quiet col12 left"></label>
-                        <input type="checkbox" id="lts2" checked="checked">
-                        <label for="lts2" id="lts2-label" class="button icon check quiet col12 left"></label>
-                    </fieldset>
-                </form>
-            </div>
+            <form>
+                <fieldset class="checkbox-pill clearfix">
+                    <input type="checkbox" id="low_stress" checked="checked">
+                    <label for="low_stress" id="low_stress-label" class="button icon check quiet col12 left"></label>
+                    <input type="checkbox" id="high_stress" checked="checked">
+                    <label for="high_stress" id="high_stress-label" class="button icon check quiet col12 left"></label>
+                </fieldset>
+            </form>
         </div>
+    </div>
     </div>
 
     <script>
@@ -103,8 +103,15 @@
             }), 'bottom-left');
         });
 
+        // show hide legend
         document.getElementById('legendbtn').onclick = function () { toggleDisplay(['legendbtn', 'legend']) };
         document.getElementById('closebtn').onclick = function () { toggleDisplay(['legendbtn', 'legend']) };
+
+        // add info to checkboxes
+        document.getElementById('low_stress-label').innerHTML = '<span style="display: inline-block;width:50px; height:8px;background-color: ' + '#377EB8' + '"></span>&nbsp;' + 'Low Stress';
+        document.getElementById('low_stress').onclick = toggleLayer;
+        document.getElementById('high_stress-label').innerHTML = '<span style="display: inline-block;width:50px; height:8px;background-color: ' + '#FF7F00' + '"></span>&nbsp;' + 'High Stress';
+        document.getElementById('high_stress').onclick = toggleLayer;
 
         function toggleDisplay(elementIds) {
             elementIds.forEach(function (elementId) {
@@ -115,6 +122,10 @@
                     x.style.display = "none";
                 }
             });
+        }
+
+        function toggleLayer(checkbox) {
+            map.setLayoutProperty(checkbox.currentTarget.id, 'visibility', checkbox.currentTarget.checked ? 'visible' : 'none');
         }
     </script>
 
