@@ -57,7 +57,8 @@
         map.on('load', function () {
             map.addSource('low_stress', {
                 type: 'geojson',
-                data: 'https://draganarad.github.io/mapData/low_stress.geojson'
+                data: 'https://draganarad.github.io/mapData/low_stress.geojson',
+                attribution: '<a href="https://github.com/BikeOttawa">BikeOttawa</a>'
             });
             map.addLayer({
                 'id': 'low_stress',
@@ -76,7 +77,8 @@
 
             map.addSource('high_stress', {
                 type: 'geojson',
-                data: 'https://draganarad.github.io/mapData/high_stress.geojson'
+                data: 'https://draganarad.github.io/mapData/high_stress.geojson',
+                attribution: '<a href="https://github.com/BikeOttawa">BikeOttawa</a>'
             });
             map.addLayer({
                 'id': 'high_stress',
